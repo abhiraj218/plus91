@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.example.batteryplugin"
+        version="1.0.0">
+  <name>BatteryPlugin</name>
+  <description>Plugin to access the battery status</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova, battery, plugin</keywords>
+  <engines>
+    <engine name="cordova" version=">=7.0.0" />
+  </engines>
+  <js-module src="www/BatteryPlugin.js" name="BatteryPlugin">
+    <clobbers target="BatteryPlugin" />
+  </js-module>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="BatteryPlugin">
+        <param name="android-package" value="com.example.batteryplugin.BatteryPlugin" />
+      </feature>
+    </config-file>
+    <source-file src="src/android/BatteryPlugin.java" target-dir="src/com/example/batteryplugin" />
+  </platform>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="BatteryPlugin">
+        <param name="ios-package" value="BatteryPlugin" />
+      </feature>
+    </config-file>
+    <source-file src="src/ios/BatteryPlugin.swift" />
+  </platform>
+</plugin>
